@@ -1,0 +1,185 @@
+is_global = true
+build_property.TargetFramework = net9.0
+build_property.TargetFramework = net9.0
+build_property.TargetPlatformMinVersion = 
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = AQUA
+build_property.RootNamespace = AQUA
+build_property.ProjectDir = C:\Users\worawich\Downloads\AquaSwim\RIS2S2G3_Group3\AQUA\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 9.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\worawich\Downloads\AquaSwim\RIS2S2G3_Group3\AQUA
+build_property._RazorSourceGeneratorDebug = 
+build_property.EffectiveAnalysisLevelStyle = 9.0
+build_property.EnableCodeStyleSeverity = 
+
+[C:/Users/worawich/Downloads/AquaSwim/RIS2S2G3_Group3/AQUA/Views/Account/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/worawich/Downloads/AquaSwim/RIS2S2G3_Group3/AQUA/Views/Account/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/worawich/Downloads/AquaSwim/RIS2S2G3_Group3/AQUA/Views/Account/RegisterManager.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZWdpc3Rlck1hbmFnZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/worawich/Downloads/AquaSwim/RIS2S2G3_Group3/AQUA/Views/Account/ResetPassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZXNldFBhc3N3b3JkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/worawich/Downloads/AquaSwim/RIS2S2G3_Group3/AQUA/Views/Account/UpdateProfile.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxVcGRhdGVQcm9maWxlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/worawich/Downloads/AquaSwim/RIS2S2G3_Group3/AQUA/Views/Account/UserProfile.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxVc2VyUHJvZmlsZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/worawich/Downloads/AquaSwim/RIS2S2G3_Group3/AQUA/Views/Classes/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xhc3Nlc1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/worawich/Downloads/AquaSwim/RIS2S2G3_Group3/AQUA/Views/Classes/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xhc3Nlc1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/worawich/Downloads/AquaSwim/RIS2S2G3_Group3/AQUA/Views/Classes/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xhc3Nlc1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/worawich/Downloads/AquaSwim/RIS2S2G3_Group3/AQUA/Views/Classes/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xhc3Nlc1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/worawich/Downloads/AquaSwim/RIS2S2G3_Group3/AQUA/Views/Classes/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xhc3Nlc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/worawich/Downloads/AquaSwim/RIS2S2G3_Group3/AQUA/Views/Classes/_ClassList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xhc3Nlc1xfQ2xhc3NMaXN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/worawich/Downloads/AquaSwim/RIS2S2G3_Group3/AQUA/Views/Financial/Dashboard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmluYW5jaWFsXERhc2hib2FyZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/worawich/Downloads/AquaSwim/RIS2S2G3_Group3/AQUA/Views/Home/About.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBYm91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/worawich/Downloads/AquaSwim/RIS2S2G3_Group3/AQUA/Views/Home/Contact.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDb250YWN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/worawich/Downloads/AquaSwim/RIS2S2G3_Group3/AQUA/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/worawich/Downloads/AquaSwim/RIS2S2G3_Group3/AQUA/Views/Invoice/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW52b2ljZVxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/worawich/Downloads/AquaSwim/RIS2S2G3_Group3/AQUA/Views/Invoice/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW52b2ljZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/worawich/Downloads/AquaSwim/RIS2S2G3_Group3/AQUA/Views/Invoice/Insert.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW52b2ljZVxJbnNlcnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/worawich/Downloads/AquaSwim/RIS2S2G3_Group3/AQUA/Views/Payment/Pay.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF5bWVudFxQYXkuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/worawich/Downloads/AquaSwim/RIS2S2G3_Group3/AQUA/Views/Promotion/promotion.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvbW90aW9uXHByb21vdGlvbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/worawich/Downloads/AquaSwim/RIS2S2G3_Group3/AQUA/Views/Schedules/Calendar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2NoZWR1bGVzXENhbGVuZGFyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/worawich/Downloads/AquaSwim/RIS2S2G3_Group3/AQUA/Views/Schedules/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2NoZWR1bGVzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/worawich/Downloads/AquaSwim/RIS2S2G3_Group3/AQUA/Views/Schedules/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2NoZWR1bGVzXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/worawich/Downloads/AquaSwim/RIS2S2G3_Group3/AQUA/Views/Schedules/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2NoZWR1bGVzXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/worawich/Downloads/AquaSwim/RIS2S2G3_Group3/AQUA/Views/Schedules/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2NoZWR1bGVzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/worawich/Downloads/AquaSwim/RIS2S2G3_Group3/AQUA/Views/Schedules/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2NoZWR1bGVzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/worawich/Downloads/AquaSwim/RIS2S2G3_Group3/AQUA/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/worawich/Downloads/AquaSwim/RIS2S2G3_Group3/AQUA/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/worawich/Downloads/AquaSwim/RIS2S2G3_Group3/AQUA/Views/SimpleCoach/Home.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2ltcGxlQ29hY2hcSG9tZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/worawich/Downloads/AquaSwim/RIS2S2G3_Group3/AQUA/Views/SimpleCoach/MyStudents.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2ltcGxlQ29hY2hcTXlTdHVkZW50cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/worawich/Downloads/AquaSwim/RIS2S2G3_Group3/AQUA/Views/SimpleCoach/TakeAttendance.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2ltcGxlQ29hY2hcVGFrZUF0dGVuZGFuY2UuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/worawich/Downloads/AquaSwim/RIS2S2G3_Group3/AQUA/Views/SimpleCoach/ThisWeekClasses.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2ltcGxlQ29hY2hcVGhpc1dlZWtDbGFzc2VzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/worawich/Downloads/AquaSwim/RIS2S2G3_Group3/AQUA/Views/SimpleCoach/ViewAttendanceFile.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2ltcGxlQ29hY2hcVmlld0F0dGVuZGFuY2VGaWxlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/worawich/Downloads/AquaSwim/RIS2S2G3_Group3/AQUA/Views/SimpleCoach/ViewAttendanceFiles.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2ltcGxlQ29hY2hcVmlld0F0dGVuZGFuY2VGaWxlcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/worawich/Downloads/AquaSwim/RIS2S2G3_Group3/AQUA/Views/Subscription/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3Vic2NyaXB0aW9uXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/worawich/Downloads/AquaSwim/RIS2S2G3_Group3/AQUA/Views/Subscription/Status.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3Vic2NyaXB0aW9uXFN0YXR1cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/worawich/Downloads/AquaSwim/RIS2S2G3_Group3/AQUA/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/worawich/Downloads/AquaSwim/RIS2S2G3_Group3/AQUA/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 

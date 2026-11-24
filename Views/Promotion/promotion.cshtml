@@ -1,0 +1,414 @@
+﻿@{
+    Layout = "_Layout";
+    ViewBag.Title = "Plans & Pricing";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/promotion.css" />
+    <link rel="stylesheet" href="~/js/review.js" />
+}
+
+
+<section class="experience" id="experience">
+    <div class="experience__content">
+        <div class="section__header">
+            <h2 class="subtitle">Professional Swimming Classes</h2>
+            <h1 class="title">Master Swimming with Expert Coaches</h1>
+        </div>
+
+
+        <p class="description">
+            Learn to swim or improve your technique with our certified swimming instructors.
+            From beginners to advanced swimmers, we offer personalized training programs
+            for all ages and skill levels in a safe, supportive environment.
+        </p>
+
+        @* link to class *@
+        <div class="experience__btn">
+            <a href="#pools" class="btn btn-primary">
+                <i class="fas fa-swimmer"></i>
+                View Our Programs
+            </a>
+        </div>
+
+
+    </div>
+    <!-- Stats Section -->
+    <div class="experience__stats">
+        <div class="stat-item" data-stat="classes">
+            <h4 class="stat-value">15<span>+</span></h4>
+            <p class="stat-label">Class Types</p>
+        </div>
+        <div class="stat-item" data-stat="coaches">
+            <h4 class="stat-value">25<span>+</span></h4>
+            <p class="stat-label">Certified Coaches</p>
+        </div>
+        <div class="stat-item" data-stat="students">
+            <h4 class="stat-value">3000<span>+</span></h4>
+            <p class="stat-label">Happy Students</p>
+        </div>
+        <div class="stat-item" data-stat="success">
+            <h4 class="stat-value">98<span>%</span></h4>
+            <p class="stat-label">Success Rate</p>
+        </div>
+    </div>
+
+</section>
+
+
+
+<!-- Featured Pools Section -->
+<section class="featured-pools" id="pools">
+    <div class="container">
+        <h2 class="section-title">Our Swimming Programs</h2>
+        <p class="section-subtitle">Choose from our comprehensive range of swimming classes designed for every age group and skill level.</p>
+
+        <!-- Link back to Experience Section -->
+        <div class="text-center mb-4">
+            <a href="#experience" class="section-link">
+                <i class="fas fa-arrow-up"></i>
+                Back to Our Experience
+            </a>
+        </div>
+
+        <div class="pools-grid">
+            <!-- Program 1 -->
+            <div class="pool-card">
+                <div class="pool-image">
+                    <img src="/images/beginner-swimming-exercises-1.jpg" alt="Beginner Swimming Class">
+                    <div class="pool-badge most-popular"><i class="fas fa-fire"></i> 20% OFF</div>
+                </div>
+                <div class="pool-details">
+                    <div class="pool-header">
+                        <h3>Beginner Swimming</h3>
+
+                    </div>
+                    <div class="pool-amenities">
+                        <div class="amenity"><span>👶</span>For Ages 4+</div>
+                        <div class="amenity"><span>👥</span>Small Groups</div>
+                        <div class="amenity"><span>⏰</span>8 Sessions/Month</div>
+
+                    </div>
+                    <div class="price-promo">
+                        <span class="old-price">Before $299<span>/month</span></span>
+                    </div>
+                    <div class="price-promo">
+                        <span class="new-price">Now Only $239<span class="month">/month</span></span>
+                    </div>
+                    @* put ur link here *@
+                    <a asp-controller="Invoice" asp-action="Insert" asp-route-promoPrice="239" class="pool-btn">Enroll Now <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <!-- Program 2 -->
+            <div class="pool-card">
+                <div class="pool-image">
+                    <img src="/images/advance%20photo.jpg" alt="Advanced Swimming Class">
+                    <div class="pool-badge wellness"><i class="fas fa-trophy"></i> Limited Time</div>
+                </div>
+                <div class="pool-details">
+                    <div class="pool-header">
+                        <h3>Advanced Technique</h3>
+
+                    </div>
+                    <div class="pool-amenities">
+                        <div class="amenity"><span>🏊</span>Stroke Refinement</div>
+                        <div class="amenity"><span>⏱️</span>Timing & Speed</div>
+                        <div class="amenity"><span>👨‍🏫</span>1-on-1 Coaching</div>
+
+                    </div>
+                    <div class="price-promo">
+                        <span class="old-price">Before $399<span>/month</span></span>
+
+                    </div>
+                    <div class="price-promo">
+
+                        <span class="new-price">Now Only $329<span class="month">/month</span></span>
+                    </div>
+                    <a asp-controller="Invoice" asp-action="Insert" asp-route-promoPrice="329" class="pool-btn highlight">
+                        <i class="fas fa-bolt"></i> Get Special Deal <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Program 3 -->
+            <div class="pool-card">
+                <div class="pool-image">
+                    <img src="/images/Family%20swimming%20photo.jpg" alt="Family Swimming Class">
+                    <div class="pool-badge family"><i class="fas fa-users"></i> Best Value for Family</div>
+
+                </div>
+                <div class="pool-details">
+                    <div class="pool-header">
+                        <h3>Family Swimming</h3>
+                    </div>
+                    <div class="pool-amenities">
+                        <div class="amenity"><span>👨‍👩‍👧‍👦</span>Up to 4 Members</div>
+                        <div class="amenity"><span>🎯</span>All Skill Levels</div>
+                        <div class="amenity"><span>📅</span>Flexible Schedule</div>
+                    </div>
+                    <div class="price-promo">
+                        <span class="old-price">Before $499<span>/family</span></span>
+
+                    </div>
+                    <div class="price-promo">
+
+                        <span class="new-price">Now Only $399<span class="month">/family</span></span>
+                    </div>
+                    <a asp-controller="Invoice" asp-action="Insert" asp-route-promoPrice="399" class="pool-btn highlight">
+                        <i class="fas fa-heart"></i> Get Enroll <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Call to action linking back to experience -->
+        <div class="text-center mt-4">
+            <p style="color: var(--text-medium); margin-bottom: 1rem;">
+                Want to know more about our latest promotion?
+                <a href="#experience" class="highlight-link">SubScribe to Our Newsletter</a>
+            </p>
+            <a href="/Subscribe" class="btn btn-primary">
+                <i class="fas fa-users"></i>
+                The Subscription is Free!
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials Section -->
+<section class="testimonials" id="testimonials">
+    <div class="container">
+        <h2 class="section-title">What Our Students Say</h2>
+
+        <!-- Scrollable Testimonials Container -->
+        <div class="testimonials-scroll-container">
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"The instructors are patient and knowledgeable. My daughter went from afraid of water to swimming confidently in just 2 months!"</p>
+                    <div class="author">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Lisa Thompson">
+                        <div class="author-info">
+                            <strong>Lisa Thompson</strong>
+                            <span>Parent of 6-year-old student</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <p>"As an adult learner, I was nervous about starting, but the supportive environment and excellent coaching made all the difference!"</p>
+                    <div class="author">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="David Wilson">
+                        <div class="author-info">
+                            <strong>David Wilson</strong>
+                            <span>Adult Beginner Student</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"The competitive swimming program helped my son qualify for regional championships. Professional coaching at its best!"</p>
+                    <div class="author">
+                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Maria Rodriguez">
+                        <div class="author-info">
+                            <strong>Maria Rodriguez</strong>
+                            <span>Parent of Competitive Swimmer</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Add more cards if needed -->
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"Excellent facilities and amazing coaches! My swimming technique improved dramatically in just a few weeks."</p>
+                    <div class="author">
+                        <img src="https://randomuser.me/api/portraits/men/54.jpg" alt="John Lee">
+                        <div class="author-info">
+                            <strong>John Lee</strong>
+                            <span>Intermediate Swimmer</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"The kids' classes are fantastic! My children look forward to every swimming lesson. Highly recommended!"</p>
+                    <div class="author">
+                        <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Sarah Chen">
+                        <div class="author-info">
+                            <strong>Sarah Chen</strong>
+                            <span>Parent of Two Students</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+        <!-- Add Your Testimonial Section -->
+<section class="staff-feedback-section">
+    <div class="container">
+
+        <h2 class="section-title">Staff Feedback</h2>
+        <p class="section-subtitle">
+            We value our staff and instructors. Please share your experience to help us improve Aqua Swim.
+        </p>
+
+        <div class="feedback-content">
+
+            <!-- LEFT: FORM -->
+            <div class="feedback-form-container">
+                <form class="feedback-form">
+
+                    <div class="form-group">
+                        <label>Full Name</label>
+                        <input type="text" placeholder="Enter your name" required />
+                    </div>
+
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" placeholder="Enter your email" required />
+                    </div>
+
+                    <div class="form-group">
+                        <label>Role</label>
+                        <select required>
+                            <option value="">Select role</option>
+                            <option>Swimming Instructor</option>
+                            <option>Lifeguard</option>
+                            <option>Reception Staff</option>
+                            <option>Management</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Feedback Type</label>
+                        <div class="feedback-types">
+                            <label class="feedback-type-option">
+                                <input type="radio" name="type" required />
+                                <span class="option-content">Suggestion</span>
+                            </label>
+
+                            <label class="feedback-type-option">
+                                <input type="radio" name="type" />
+                                <span class="option-content">Complaint</span>
+                            </label>
+
+                            <label class="feedback-type-option">
+                                <input type="radio" name="type" />
+                                <span class="option-content">Appreciation</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Message</label>
+                        <textarea rows="5" placeholder="Write your feedback here..." required></textarea>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-submit">
+                            Submit Feedback
+                        </button>
+                    </div>
+
+                </form>
+            </div>
+
+            <!-- RIGHT: INFO PANEL -->
+            <div class="feedback-info">
+                <h3>Why Your Feedback Matters</h3>
+                <ul>
+                    <li>✔ Improve staff working environment</li>
+                    <li>✔ Enhance training quality</li>
+                    <li>✔ Build a better Aqua Swim team</li>
+                </ul>
+                <p class="note">
+                    All feedback is confidential and reviewed by management.
+                </p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+
+
+
+            <script>
+                document.addEventListener("DOMContentLoaded", function () {
+                    const form = document.getElementById("staffFeedbackForm");
+                    const comment = document.getElementById("staffComment");
+                    const charCount = document.getElementById("charCount");
+                    const successMessage = document.getElementById("successMessage");
+                    const emailDisplay = document.getElementById("userEmailDisplay");
+
+                    // Character counter
+                    comment.addEventListener("input", function () {
+                        charCount.textContent = comment.value.length;
+                        if (comment.value.length > 500) {
+                            comment.value = comment.value.substring(0, 500);
+                        }
+                    });
+
+                    // Form submit
+                    form.addEventListener("submit", function (e) {
+                        e.preventDefault();
+
+                        const email = document.getElementById("feedbackEmail").value;
+
+                        // Show success message
+                        emailDisplay.textContent = email;
+                        successMessage.style.display = "block";
+                        form.style.display = "none";
+
+                        // OPTIONAL: send to backend later (AJAX / MVC / API)
+                        // fetch("/Feedback/Submit", { method: "POST", body: new FormData(form) });
+                    });
+                });
+
+                // Close success message
+                function hideSuccessMessage() {
+                    document.getElementById("successMessage").style.display = "none";
+                    document.getElementById("staffFeedbackForm").style.display = "block";
+                    document.getElementById("staffFeedbackForm").reset();
+                    document.getElementById("charCount").textContent = "0";
+                }
+            </script>
+ 

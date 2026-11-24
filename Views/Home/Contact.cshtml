@@ -1,0 +1,173 @@
+﻿@{
+    ViewData["Title"] = "Contact Us";
+}
+
+<div class="container mt-5">
+    <!-- Page Header -->
+    <div class="page-header mb-5">
+        <h1 class="page-title">Contact Us</h1>
+        <p class="page-subtitle">Get in touch with AQUA Swimming Academy. Our team is ready to assist you with any questions or concerns.</p>
+    </div>
+
+    <div class="row">
+        <!-- Contact Information Card -->
+        <div class="col-lg-6 mb-4">
+            <div class="card h-100">
+                <div class="card-header">
+                    <i class="fas fa-info-circle"></i> Contact Information
+                </div>
+                <div class="card-body">
+                    <div class="row mb-4">
+                        <div class="col-md-6 mb-4">
+                            <div class="feature-card">
+                                <div class="feature-icon mb-3">
+                                    <i class="fas fa-phone-alt"></i>
+                                </div>
+                                <h4 class="feature-title mb-3">Phone Number</h4>
+                                <p class="mb-3">Call us directly for immediate assistance</p>
+                                <div id="mobileContact" style="display: none;">
+                                    <a href="tel:+1234567890" class="btn btn-success w-100">
+                                        <i class="fas fa-phone"></i> Tap to Call Now
+                                    </a>
+                                    <p class="text-muted text-center mt-2">+1 (234) 567-8900</p>
+                                </div>
+                                <div id="desktopPhone">
+                                    <div class="alert alert-info">
+                                        <i class="fas fa-phone"></i>
+                                        <strong>Call Us:</strong> +1 (234) 567-8900<br>
+                                        <small>Please use your mobile phone to call</small>
+                                    </div>
+                                </div>
+                                <!-- WhatsApp -->
+                                <div class="alert alert-success">
+                                    <i class="fab fa-whatsapp"></i>
+                                    <div>
+                                        <strong>WhatsApp Support</strong><br>
+                                        <small>Chat with us for quick questions</small>
+                                    </div>
+                                    <a href="https://wa.me/1234567890?text=Hello%20AQUA%20Swimming%20Academy"
+                                       target="_blank" class="btn btn-success btn-sm ms-2">
+                                        <i class="fab fa-whatsapp"></i> Chat Now
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 mb-4">
+                            <div class="feature-card">
+                                <div class="feature-icon mb-3">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <h4 class="feature-title mb-3">Email Address</h4>
+                                <p class="mb-3">Send us an email for detailed inquiries</p>
+                                <a href="mailto:support@aqua.com" class="btn btn-primary w-100">
+                                    <i class="fas fa-envelope"></i> Email Support
+                                </a>
+                                <p class="text-muted text-center mt-2">support@aqua.com</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="feature-card mb-4">
+                        <div class="feature-icon mb-3">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h4 class="feature-title mb-3">Visit Our Campus</h4>
+                        <dl class="row">
+                            <dt class="col-sm-4">Address:</dt>
+                            <dd class="col-sm-8">
+                                Seksyen 13, 40100 Shah Alam, Selangor<br>
+                            </dd>
+
+                            <dt class="col-sm-4">Business Hours:</dt>
+                            <dd class="col-sm-8">
+                                <strong>Monday - Friday:</strong> 6:00 AM - 10:00 PM<br>
+                                <strong>Saturday:</strong> 7:00 AM - 8:00 PM<br>
+                                <strong>Sunday:</strong> 8:00 AM - 6:00 PM
+                            </dd>
+                        </dl>
+                        <a href="https://maps.app.goo.gl/iyF4Lbw9uL8vzmwXA"
+                           target="_blank" class="btn btn-outline-primary w-100">
+                            <i class="fas fa-directions"></i> Get Directions
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Back to Home Button -->
+    <div class="text-center mt-5">
+        <a href="/" class="btn btn-secondary btn-lg">
+            <i class="fas fa-arrow-left"></i> Back to Home
+        </a>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        // Check if user is on mobile device
+        function isMobileDevice() {
+            return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        }
+
+        // When page loads, show the appropriate contact method
+        document.addEventListener('DOMContentLoaded', function() {
+            if (isMobileDevice()) {
+                // Show mobile call buttons
+                document.getElementById('mobileContact').style.display = 'block';
+                document.getElementById('desktopPhone').style.display = 'none';
+                document.getElementById('emergencyMobile').style.display = 'block';
+
+                // Add pulse animation to call buttons
+                const callButtons = document.querySelectorAll('a[href^="tel:"]');
+                callButtons.forEach(btn => {
+                    btn.style.animation = 'pulse 2s infinite';
+                    btn.style.position = 'relative';
+                    btn.style.overflow = 'hidden';
+                });
+            } else {
+                // Show desktop info
+                document.getElementById('mobileContact').style.display = 'none';
+                document.getElementById('desktopPhone').style.display = 'block';
+                document.getElementById('emergencyMobile').style.display = 'none';
+            }
+        });
+
+        // Add copy phone number functionality
+        document.querySelectorAll('.alert-info, .alert-danger').forEach(alert => {
+            const phoneMatch = alert.textContent.match(/\+1\s\(\d{3}\)\s\d{3}-\d{4}/g);
+            if (phoneMatch) {
+                const phoneNumber = phoneMatch[0];
+                const copyBtn = document.createElement('button');
+                copyBtn.className = 'btn btn-sm btn-outline-light ms-2';
+                copyBtn.innerHTML = '<i class="fas fa-copy"></i>';
+                copyBtn.title = 'Copy phone number';
+                copyBtn.onclick = function(e) {
+                    e.stopPropagation();
+                    navigator.clipboard.writeText(phoneNumber.replace(/\D/g, '')).then(() => {
+                        showToast('Phone number copied to clipboard!', 'success');
+                    });
+                };
+
+                const phoneElement = alert.querySelector('strong');
+                if (phoneElement) {
+                    phoneElement.parentNode.appendChild(copyBtn);
+                }
+            }
+        });
+
+        function showToast(message, type) {
+            // Simple toast notification
+            const toast = document.createElement('div');
+            toast.className = `alert alert-${type} position-fixed`;
+            toast.style.cssText = 'top: 20px; right: 20px; z-index: 9999;';
+            toast.innerHTML = `<i class="fas fa-${type === 'success' ? 'check-circle' : 'info-circle'} me-2"></i> ${message}`;
+            document.body.appendChild(toast);
+
+            setTimeout(() => {
+                toast.remove();
+            }, 3000);
+        }
+    </script>
+}

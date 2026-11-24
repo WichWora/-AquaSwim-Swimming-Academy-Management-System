@@ -1,0 +1,153 @@
+﻿@using AQUA
+@model AQUA.Models.Class
+
+@{
+    ViewData["Title"] = "Edit Class";
+}
+
+<h1>Edit Class</h1>
+
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="Edit">
+            <input type="hidden" asp-for="ClassId" />
+
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group mb-3">
+                <label asp-for="ClassName" class="form-label">Class Name</label>
+                <input asp-for="ClassName" class="form-control" />
+                <span asp-validation-for="ClassName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="Level" class="form-label">Level</label>
+                <select asp-for="Level" class="form-select">
+                    <option value="">Select Level</option>
+                    <option value="Beginner">Beginner</option>
+                    <option value="Intermediate">Intermediate</option>
+                    <option value="Advanced">Advanced</option>
+                </select>
+                <span asp-validation-for="Level" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="MaxCapacity" class="form-label">Maximum Capacity</label>
+                <input asp-for="MaxCapacity" class="form-control" type="number" min="1" max="50" />
+                <span asp-validation-for="MaxCapacity" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="Fee" class="form-label">Fee</label>
+                <div class="input-group">
+                    <span class="input-group-text">RM</span>
+                    <input asp-for="Fee" class="form-control" type="number" step="0.01" min="0" />
+                </div>
+                <span asp-validation-for="Fee" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="Description" class="form-label">Description</label>
+                <textarea asp-for="Description" class="form-control" rows="3"></textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+
+            <div class="form-group form-check mb-3">
+                <input class="form-check-input" asp-for="IsActive" />
+                <label class="form-check-label" asp-for="IsActive">Active</label>
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">
+                    <i class="bi bi-save"></i> Save Changes
+                </button>
+                <a asp-action="Index" class="btn btn-secondary">
+                    <i class="bi bi-arrow-left"></i> Back to List
+                </a>
+                <a asp-action="Details" asp-route-id="@Model.ClassId" class="btn btn-info">
+                    <i class="bi bi-eye"></i> View Details
+                </a>
+            </div>
+        </form>
+    </div>
+
+    <!-- Class Info Card -->
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title mb-0">
+                    <i class="bi bi-info-circle"></i> Class Information
+                </h5>
+            </div>
+            <div class="card-body">
+                <dl class="row">
+                    <dt class="col-sm-4">Class ID:</dt>
+                    <dd class="col-sm-8">@Model.ClassId</dd>
+
+                    <dt class="col-sm-4">Status:</dt>
+                    <dd class="col-sm-8">
+                        <span class="badge @(Model.IsActive ? "bg-success" : "bg-danger")">
+                            @(Model.IsActive ? "Active" : "Inactive")
+                        </span>
+                    </dd>
+
+                    @if (Model.Schedules != null && Model.Schedules.Any())
+                    {
+                        <dt class="col-sm-4">Schedules:</dt>
+                        <dd class="col-sm-8">
+                            <span class="badge bg-info">@Model.Schedules.Count active schedules</span>
+                        </dd>
+                    }
+                </dl>
+
+                <div class="alert alert-warning">
+                    <h6 class="alert-heading">
+                        <i class="bi bi-exclamation-triangle"></i> Important
+                    </h6>
+                    <p class="mb-0">
+                        Changes made here will affect all related schedules and enrollments.
+                        Use caution when modifying fee or capacity.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+    <script>
+        $(document).ready(function() {
+            // Auto-dismiss alerts after 5 seconds
+            setTimeout(function() {
+                $('.alert').alert('close');
+            }, 5000);
+
+            // Add confirmation for saving changes
+            $('form').submit(function(e) {
+                const fee = $('#Fee').val();
+                const capacity = $('#MaxCapacity').val();
+
+                // Basic validation
+                if (fee <= 0) {
+                    e.preventDefault();
+                    alert('Fee must be greater than 0');
+                    $('#Fee').focus();
+                    return false;
+                }
+
+                if (capacity <= 0 || capacity > 50) {
+                    e.preventDefault();
+                    alert('Capacity must be between 1 and 50');
+                    $('#MaxCapacity').focus();
+                    return false;
+                }
+
+                return true;
+            });
+        });
+    </script>
+}

@@ -1,0 +1,78 @@
+﻿@model AQUA.Models.Class
+
+<h2>Create New Class</h2>
+<hr />
+
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="Create">
+            <div asp-validation-summary="All" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="ClassName" class="control-label"></label>
+                <input asp-for="ClassName" class="form-control" />
+                <span asp-validation-for="ClassName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Level" class="control-label"></label>
+                <select asp-for="Level" class="form-control">
+                    <option value="">Select Level</option>
+                    <option value="Beginner">Beginner</option>
+                    <option value="Intermediate">Intermediate</option>
+                    <option value="Advanced">Advanced</option>
+                </select>
+                <span asp-validation-for="Level" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="MaxCapacity" class="control-label"></label>
+                <input asp-for="MaxCapacity" class="form-control" value="15" />
+                <span asp-validation-for="MaxCapacity" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Fee" class="control-label"></label>
+                <input asp-for="Fee" class="form-control" value="200.00" />
+                <span asp-validation-for="Fee" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <textarea asp-for="Description" class="form-control" rows="3"></textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+
+            <div class="form-group form-check">
+                <input class="form-check-input" asp-for="IsActive" checked="checked" />
+                <label class="form-check-label" asp-for="IsActive"></label>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+                <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+    <!-- Add this script to debug -->
+    <script>
+        console.log("Create page loaded");
+
+        $(document).ready(function() {
+            $('form').submit(function(e) {
+                console.log('Form submitted');
+                console.log('Class Name:', $('#ClassName').val());
+                console.log('Level:', $('#Level').val());
+                console.log('Max Capacity:', $('#MaxCapacity').val());
+                console.log('Fee:', $('#Fee').val());
+            });
+        });
+    </script>
+}

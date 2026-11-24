@@ -1,0 +1,131 @@
+﻿@model AQUA.Models.Class
+
+@{
+    ViewData["Title"] = "Delete Class";
+}
+
+<div class="container">
+    <h1 class="text-danger"><i class="bi bi-exclamation-triangle"></i> Delete Class</h1>
+    <hr />
+
+    <div class="alert alert-danger">
+        <h4 class="alert-heading"><i class="bi bi-exclamation-octagon"></i> Permanent Deletion Warning!</h4>
+        <p class="mb-0">
+            You are about to permanently delete this class. This action <strong>cannot be undone</strong>.
+            @if (ViewBag.HasSchedules)
+            {
+                <br />
+            
+                <strong>⚠️ This will also delete @ViewBag.ScheduleCount associated schedule(s).</strong>
+            }
+        </p>
+    </div>
+
+    <div class="card mb-4">
+        <div class="card-header bg-danger text-white">
+            <h5 class="mb-0"><i class="bi bi-trash"></i> Class to be Deleted</h5>
+        </div>
+        <div class="card-body">
+            <dl class="row">
+                <dt class="col-sm-4">Class Name:</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.ClassName)</dd>
+
+                <dt class="col-sm-4">Level:</dt>
+                <dd class="col-sm-8">
+                    <span class="badge @GetLevelBadgeClass(Model.Level)">
+                        @Html.DisplayFor(model => model.Level)
+                    </span>
+                </dd>
+
+                <dt class="col-sm-4">Maximum Capacity:</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.MaxCapacity) students</dd>
+
+                <dt class="col-sm-4">Fee:</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.Fee)</dd>
+
+                <dt class="col-sm-4">Description:</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.Description)</dd>
+
+                @if (ViewBag.HasSchedules)
+                {
+                    <dt class="col-sm-4 text-danger">Schedules to be deleted:</dt>
+                    <dd class="col-sm-8 text-danger">
+                        <i class="bi bi-calendar-x"></i> @ViewBag.ScheduleCount schedule(s)
+                    </dd>
+                }
+            </dl>
+        </div>
+    </div>
+
+    <form asp-action="Delete" method="post">
+        <input type="hidden" asp-for="ClassId" />
+
+        <div class="mb-4">
+            <label for="confirmationInput" class="form-label">
+                <i class="bi bi-shield-exclamation"></i> Type "DELETE" to confirm permanent deletion:
+            </label>
+            <input type="text"
+                   class="form-control"
+                   id="confirmationInput"
+                   placeholder="Type DELETE here"
+                   oninput="validateConfirmation()"
+                   required>
+            <div class="form-text text-danger">
+                <i class="bi bi-info-circle"></i> This is required to prevent accidental deletion.
+            </div>
+        </div>
+
+        <div class="btn-group" role="group">
+            <button type="submit"
+                    id="deleteButton"
+                    class="btn btn-danger"
+                    disabled>
+                <i class="bi bi-trash"></i> Permanently Delete
+            </button>
+            <a asp-action="Index" class="btn btn-secondary">
+                <i class="bi bi-arrow-left"></i> Cancel
+            </a>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    <script>
+        function validateConfirmation() {
+            const input = document.getElementById('confirmationInput');
+            const button = document.getElementById('deleteButton');
+
+            if (input.value.toUpperCase() === 'DELETE') {
+                button.disabled = false;
+                input.classList.remove('is-invalid');
+                input.classList.add('is-valid');
+            } else {
+                button.disabled = true;
+                input.classList.remove('is-valid');
+                input.classList.add('is-invalid');
+            }
+        }
+
+        // Prevent form submission if confirmation is invalid
+        document.querySelector('form').addEventListener('submit', function(event) {
+            const input = document.getElementById('confirmationInput');
+            if (input.value.toUpperCase() !== 'DELETE') {
+                event.preventDefault();
+                alert('Please type "DELETE" to confirm permanent deletion.');
+            }
+        });
+    </script>
+}
+
+@functions {
+    string GetLevelBadgeClass(string level)
+    {
+        return level switch
+        {
+            "Beginner" => "bg-info",
+            "Intermediate" => "bg-primary",
+            "Advanced" => "bg-warning",
+            _ => "bg-secondary"
+        };
+    }
+}

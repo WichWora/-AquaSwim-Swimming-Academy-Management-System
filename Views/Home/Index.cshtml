@@ -1,0 +1,195 @@
+﻿@{
+    ViewData["Title"] = "Home - AquaSwimming Academy";
+}
+
+<!-- Hero Section -->
+<section class="hero-section">
+    <div class="hero-content">
+        <h1 class="hero-title" data-translate="Welcome to AquaSwimming Academy">Welcome to AquaSwimming Academy</h1>
+        <p class="hero-subtitle" data-translate="Professional swimming classes for all ages and skill levels. Master the waters with confidence.">
+            Professional swimming classes for all ages and skill levels. Master the waters with confidence.
+        </p>
+        <div class="hero-cta">
+            <a asp-controller="Classes" asp-action="Index" class="btn btn-primary btn-lg">
+                <i class="fas fa-swimming-pool me-2"></i>
+                <span data-translate="Browse Classes">Browse Classes</span>
+            </a>
+            @if (!User.Identity.IsAuthenticated)
+            {
+                <a asp-controller="Account" asp-action="Register" class="btn btn-outline btn-lg">
+                    <i class="fas fa-user-plus me-2"></i>
+                    <span data-translate="Join Now">Join Now</span>
+                </a>
+            }
+        </div>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section class="features-section">
+    <div class="container">
+        <div class="page-header">
+            <h2 class="page-title" data-translate="Why Choose AquaSwimming?">Why Choose AquaSwimming?</h2>
+            <p class="page-subtitle" data-translate="Discover the perfect swimming program tailored to your needs and goals">
+                Discover the perfect swimming program tailored to your needs and goals
+            </p>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-swimmer"></i>
+                </div>
+                <h3 class="feature-title" data-translate="Expert Coaches">Expert Coaches</h3>
+                <p class="feature-description" data-translate="Learn from certified swimming instructors with years of competitive and teaching experience.">
+                    Learn from certified swimming instructors with years of competitive and teaching experience.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-water"></i>
+                </div>
+                <h3 class="feature-title" data-translate="Modern Facilities">Modern Facilities</h3>
+                <p class="feature-description" data-translate="Train in our Olympic-sized heated pools with state-of-the-art equipment and safety systems.">
+                    Train in our Olympic-sized heated pools with state-of-the-art equipment and safety systems.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-trophy"></i>
+                </div>
+                <h3 class="feature-title" data-translate="Progressive Levels">Progressive Levels</h3>
+                <p class="feature-description" data-translate="From beginner to competitive levels, we have a structured program for every swimmer.">
+                    From beginner to competitive levels, we have a structured program for every swimmer.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Quick Actions Section -->
+<section class="main-content">
+    <div class="container">
+        <div class="page-header">
+            <h2 class="page-title" data-translate="Get Started Today">Get Started Today</h2>
+            <p class="page-subtitle" data-translate="Choose your path to swimming excellence">Choose your path to swimming excellence</p>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <div class="card-header">
+                        <i class="fas fa-book me-2"></i>
+                        <span data-translate="Browse Classes">Browse Classes</span>
+                    </div>
+                    <div class="card-body text-center">
+                        <p class="card-text" data-translate="View our wide range of swimming classes from beginner to advanced levels.">
+                            View our wide range of swimming classes from beginner to advanced levels.
+                        </p>
+                        <a asp-controller="Classes" asp-action="Index" class="btn btn-primary mt-3">
+                            <i class="fas fa-eye me-2"></i>
+                            <span data-translate="View Classes">View Classes</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <div class="card-header">
+                        <i class="fas fa-calendar-alt me-2"></i>
+                        <span data-translate="View Schedule">View Schedule</span>
+                    </div>
+                    <div class="card-body text-center">
+                        <p class="card-text" data-translate="Check our class schedules and find a time that works for you.">
+                            Check our class schedules and find a time that works for you.
+                        </p>
+                        <a asp-controller="Schedules" asp-action="Calendar" class="btn btn-success mt-3">
+                            <i class="fas fa-calendar-check me-2"></i>
+                            <span data-translate="View Calendar">View Calendar</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <div class="card-header">
+                        <i class="fas fa-user-plus me-2"></i>
+                        <span data-translate="Register Now">Register Now</span>
+                    </div>
+                    <div class="card-body text-center">
+                        <p class="card-text" data-translate="Join our swimming academy and start your journey to becoming a better swimmer.">
+                            Join our swimming academy and start your journey to becoming a better swimmer.
+                        </p>
+                        @if (User.IsInRole("Manager"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link" asp-controller="Account" asp-action="Register">
+                                    <i class="fas fa-user-plus"></i>
+                                    <span data-translate="Register New User">Register New User</span>
+                                </a>
+                            </li>
+                        }
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <a asp-controller="Account" asp-action="Logout" class="btn btn-danger mt-3">
+                                <i class="fas fa-sign-out-alt me-2"></i>
+                                <span data-translate="Logout">Logout</span>
+                            </a>
+                        }
+                        else
+                        {
+                            <a asp-controller="Account" asp-action="Login" class="btn btn-info mt-3">
+                                <i class="fas fa-sign-in-alt me-2"></i>
+                                <span data-translate="Login / Register">Login / Register</span>
+                            </a>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Quick Links -->
+<div class="container mt-5 mb-5">
+    <div class="text-center">
+        <h4 data-translate="Quick Navigation">Quick Navigation</h4>
+        <div class="btn-group mt-3 flex-wrap" role="group">
+            <a asp-controller="Classes" asp-action="Index" class="btn btn-outline-primary m-1">
+                <i class="fas fa-swimming-pool me-2"></i>
+                <span data-translate="All Classes">All Classes</span>
+            </a>
+            <a asp-controller="Schedules" asp-action="Index" class="btn btn-outline-success m-1">
+                <i class="fas fa-clock me-2"></i>
+                <span data-translate="Weekly Schedule">Weekly Schedule</span>
+            </a>
+            <a asp-controller="Schedules" asp-action="Calendar" class="btn btn-outline-info m-1">
+                <i class="fas fa-calendar-month me-2"></i>
+                <span data-translate="Monthly Calendar">Monthly Calendar</span>
+            </a>
+            <a asp-controller="Home" asp-action="About" class="btn btn-outline-warning m-1">
+                <i class="fas fa-info-circle me-2"></i>
+                <span data-translate="About Us">About Us</span>
+            </a>
+            <a asp-controller="Home" asp-action="Contact" class="btn btn-outline-danger m-1">
+                <i class="fas fa-envelope me-2"></i>
+                <span data-translate="Contact">Contact</span>
+            </a>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        // Ensure language switcher works on this page
+        document.addEventListener('DOMContentLoaded', function() {
+            if (window.languageSwitcher) {
+                window.languageSwitcher.applyTranslations();
+            }
+        });
+    </script>
+}

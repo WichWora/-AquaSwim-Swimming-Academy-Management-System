@@ -1,0 +1,74 @@
+﻿@using AQUA
+@model IEnumerable<AQUA.Models.Class>
+
+@{
+    ViewData["Title"] = "Swimming Classes";
+}
+
+<div class="container">
+    <h1 class="mb-4">Swimming Classes</h1>
+
+    @if (User.IsInRole("ServerAdmin") || User.IsInRole("Manager"))
+    {
+        <p>
+            <a asp-action="Create" class="btn btn-primary">Create New Class</a>
+        </p>
+    }
+
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">@Html.DisplayFor(modelItem => item.ClassName)</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">@Html.DisplayFor(modelItem => item.Level)</h6>
+                        <p class="card-text">@Html.DisplayFor(modelItem => item.Description)</p>
+                        <ul class="list-unstyled">
+                            <li><strong>Capacity:</strong> @Html.DisplayFor(modelItem => item.MaxCapacity) students</li>
+                            <li><strong>Fee:</strong> @Html.DisplayFor(modelItem => item.Fee)</li>
+                        </ul>
+                    </div>
+                    <div class="card-footer">
+                        <a asp-action="Details" asp-route-id="@item.ClassId" class="btn btn-info btn-sm">Details</a>
+                        @if (User.IsInRole("Admin") || User.IsInRole("Manager"))
+                        {
+                            <a asp-action="Edit" asp-route-id="@item.ClassId" class="btn btn-warning btn-sm">Edit</a>
+                            <a asp-action="Delete" asp-route-id="@item.ClassId" class="btn btn-danger btn-sm">Delete</a>
+                        }
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<style>
+    .card-title {
+        color: var(--secondary-dark);
+    }
+
+    .card-body ul.list-unstyled {
+        padding: 11px;
+    }
+
+</style>
+
+@section Scripts {
+    <script>
+        $(document).ready(function() {
+            $('#searchInput').on('keyup', function() {
+                var searchText = $(this).val().toLowerCase();
+
+                $.ajax({
+                    url: '@Url.Action("Search", "Classes")',
+                    type: 'GET',
+                    data: { search: searchText },
+                    success: function(data) {
+                        $('#classList').html(data);
+                    }
+                });
+            });
+        });
+    </script>
+}

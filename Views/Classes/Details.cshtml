@@ -1,0 +1,97 @@
+﻿@using AQUA
+@model AQUA.Models.Class
+
+@{
+    ViewData["Title"] = "Class Details";
+}
+
+<div class="container">
+    <h1>@Model.ClassName</h1>
+
+    <div class="row">
+        <div class="col-md-6">
+            <dl class="row">
+                <dt class="col-sm-4">Level:</dt>
+                <dd class="col-sm-8">@Model.Level</dd>
+
+                <dt class="col-sm-4">Max Capacity:</dt>
+                <dd class="col-sm-8">@Model.MaxCapacity students</dd>
+
+                <dt class="col-sm-4">Fee:</dt>
+                <dd class="col-sm-8">@Model.Fee.ToString("C")</dd>
+
+                <dt class="col-sm-4">Description:</dt>
+                <dd class="col-sm-8">@Model.Description</dd>
+            </dl>
+        </div>
+    </div>
+
+    <h3 class="mt-4">Available Schedules</h3>
+    @if (Model.Schedules != null && Model.Schedules.Any())
+    {
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Day</th>
+                    <th>Time</th>
+                    <th>Coach</th>
+                    <th>Location</th>
+                    <th>Status</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var schedule in Model.Schedules.Where(s => s.StartDate >= DateTime.Today))
+                {
+                    <tr>
+                        <td>@schedule.DayOfWeek</td>
+                        <td>
+                            @try
+                            {
+                                @* Use TimeSpan format strings with @ symbol *@
+                                @schedule.StartTime.ToString(@"hh\:mm")
+                                <text> - </text>
+                                @schedule.EndTime.ToString(@"hh\:mm")
+                            }
+                            catch
+                            {
+                                <text>Time not set</text>
+                            }
+                        </td>
+                        <td>@schedule.Coach?.FullName</td>
+                        <td>@schedule.PoolLocation</td>
+                        <td>
+                            @if (schedule.IsFull)
+                            {
+                                <span class="badge bg-danger">Full</span>
+                            }
+                            else
+                            {
+                                <span class="badge bg-success">Available</span>
+                            }
+                        </td>
+                        <td>
+                            <a asp-controller="Schedules" asp-action="Details" asp-route-id="@schedule.ScheduleId" class="btn btn-sm btn-info">View</a>
+                            @if (!schedule.IsFull)
+                            {
+                                <a asp-controller="Invoice" asp-action="Insert" asp-route-scheduleId="@schedule.ScheduleId" class="btn btn-sm btn-success">Enroll Now</a>
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p class="text-muted">No schedules available for this class.</p>
+    }
+
+    <div class="mt-3">
+        <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+        @if (User.IsInRole("Admin") || User.IsInRole("Manager"))
+        {
+            <a asp-action="Edit" asp-route-id="@Model.ClassId" class="btn btn-warning">Edit</a>
+        }
+    </div>
+</div>

@@ -1,0 +1,71 @@
+﻿@model AQUA.ViewModels.FinancialDashboardVm
+
+<h2>Financial Dashboard</h2>
+
+<form method="get">
+    From: <input type="date" name="FromDate" value="@Model.Filter.FromDate?.ToString("yyyy-MM-dd")">
+    To: <input type="date" name="ToDate" value="@Model.Filter.ToDate?.ToString("yyyy-MM-dd")">
+    Invoice Status: <select name="InvoiceStatus">
+        <option value="All">All</option>
+        <option value="Paid">Paid</option>
+        <option value="Unpaid">Unpaid</option>
+        <option value="Partial">Partial</option>
+        <option value="Cancelled">Cancelled</option>
+    </select>
+    Payment Method: <select name="PaymentMethod">
+        <option value="All">All</option>
+        <option value="Cash">Cash</option>
+        <option value="Bank Transfer">Bank Transfer</option>
+        <option value="Online">Online</option>
+        <option value="Card">Card</option>
+    </select>
+    Username: <input type="text" name="Username" value="@Model.Filter.Username">
+    <button type="submit">Generate Report</button>
+</form>
+
+<div>Total Invoices: @Model.TotalInvoices</div>
+<div>Total Payments: @Model.TotalPayments</div>
+<div>Outstanding: @Model.Outstanding</div>
+<div>Overdue Invoices: @Model.OverdueCount</div>
+
+<h3>Invoice Report</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Invoice No</th>
+            <th>Username</th>
+            <th>Issue Date</th>
+            <th>Due Date</th>
+            <th>Total Amount</th>
+            <th>Paid Amount</th>
+            <th>Balance</th>
+            <th>Status</th>
+            <th>Overdue</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var row in Model.Rows)
+        {
+            <tr>
+                <td>@row.InvoiceNumber</td>
+                <td>@row.Username</td>
+                <td>@row.IssueDate.ToString("yyyy-MM-dd")</td>
+                <td>@row.DueDate.ToString("yyyy-MM-dd")</td>
+                <td>@row.TotalAmount</td>
+                <td>@row.PaidAmount</td>
+                <td>@row.Balance</td>
+                <td>@row.Status</td>
+                <td>@(row.IsOverdue ? "YES" : "NO")</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<!-- CSV Export Link -->
+<a href="@Url.Action("ExportCsv", "Financial", new {
+    FromDate = Model.Filter.FromDate?.ToString("yyyy-MM-dd"),
+    ToDate = Model.Filter.ToDate?.ToString("yyyy-MM-dd"),
+    InvoiceStatus = Model.Filter.InvoiceStatus,
+    PaymentMethod = Model.Filter.PaymentMethod,
+    Username = Model.Filter.Username
+})" class="btn btn-primary">Download CSV Report</a>

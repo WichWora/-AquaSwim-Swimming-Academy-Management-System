@@ -1,0 +1,108 @@
+@model AQUA.ViewModels.PaymentVM
+
+@{
+    ViewData["Title"] = "Secure Checkout";
+}
+
+<div class="page-header">
+    <h1 class="page-title">Secure Checkout</h1>
+    <p class="page-subtitle">Complete your payment for Invoice #@Model.InvoiceId</p>
+</div>
+
+<div class="container" style="max-width: 600px;">
+    <div class="card" style="border-top: 6px solid var(--accent-success);">
+        <div class="card-header">
+            <i class="fas fa-shield-alt"></i>
+            <span>Payment Information</span>
+        </div>
+        <div class="card-body" style="padding: 30px;">
+            <div style="background: var(--primary-softest); border-radius: var(--radius-md); padding: 20px; margin-bottom: 30px; display: flex; justify-content: space-between; align-items: center;">
+                <span style="font-weight: 600; color: var(--neutral-main);">Total Payable:</span>
+                <span style="font-size: 1.8rem; font-weight: 800; color: var(--secondary-dark);">@Model.Amount.ToString("C")</span>
+            </div>
+
+            <form asp-action="Pay" method="post" id="paymentForm">
+                <input type="hidden" asp-for="InvoiceId" />
+                <input type="hidden" asp-for="Amount" />
+
+                <div class="form-group">
+                    <label asp-for="CardName" class="form-label">Name on Card</label>
+                    <input asp-for="CardName" class="form-control" placeholder="e.g. JOHN DOE" style="text-transform: uppercase;" />
+                    <span asp-validation-for="CardName" class="alert-danger" style="font-size: 0.85rem; padding: 5px; border: none; background: none;"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="CardNumber" class="form-label">Card Number</label>
+                    <div style="position: relative;">
+                        <input asp-for="CardNumber" class="form-control" placeholder="●●●● ●●●● ●●●● ●●●●" maxlength="19" />
+                        <div style="position: absolute; right: 15px; top: 16px; display: flex; gap: 8px;">
+                            <i class="fab fa-cc-visa" style="color: #1a1f71; font-size: 1.5rem;"></i>
+                            <i class="fab fa-cc-mastercard" style="color: #eb001b; font-size: 1.5rem;"></i>
+                        </div>
+                    </div>
+                    <span asp-validation-for="CardNumber" class="alert-danger" style="font-size: 0.85rem; padding: 5px; border: none; background: none;"></span>
+                </div>
+
+                <div class="row" style="display: flex; gap: 20px; margin-bottom: 20px;">
+                    <div class="form-group" style="flex: 1;">
+                        <label asp-for="ExpiryDate" class="form-label">Expiration (MM/YY)</label>
+                        <input asp-for="ExpiryDate" class="form-control" placeholder="MM/YY" maxlength="5" />
+                        <span asp-validation-for="ExpiryDate" class="alert-danger" style="font-size: 0.85rem; padding: 5px; border: none; background: none;"></span>
+                    </div>
+                    <div class="form-group" style="flex: 1;">
+                        <label asp-for="CVV" class="form-label">Security Code (CVV)</label>
+                        <div style="position: relative;">
+                            <input asp-for="CVV" class="form-control" placeholder="123" maxlength="4" type="password" />
+                            <i class="fas fa-lock" style="position: absolute; right: 15px; top: 16px; color: var(--neutral-lighter);"></i>
+                        </div>
+                        <span asp-validation-for="CVV" class="alert-danger" style="font-size: 0.85rem; padding: 5px; border: none; background: none;"></span>
+                    </div>
+                </div>
+
+                <div style="margin-top: 40px;">
+                    <button type="submit" class="btn btn-success btn-lg" style="width: 100%;">
+                        <i class="fas fa-check-circle"></i> Complete Payment
+                    </button>
+                    <div style="text-align: center; margin-top: 20px;">
+                        <a asp-controller="Invoice" asp-action="Details" asp-route-id="@Model.InvoiceId" style="color: var(--primary-main); text-decoration: none; font-weight: 600;">
+                            <i class="fas fa-arrow-left"></i> Back to Invoice
+                        </a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 30px; color: var(--neutral-light); font-size: 0.9rem;">
+        <p><i class="fas fa-shield-alt"></i> 256-bit SSL Secure Payment Processing</p>
+        <p>AQS will never store your full card details.</p>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+        $(document).ready(function () {
+            // Auto format Expiry Date MM/YY
+            $('#ExpiryDate').on('input', function (e) {
+                var val = $(this).val().replace(/\D/g, '');
+                if (val.length > 2) {
+                    $(this).val(val.substring(0, 2) + '/' + val.substring(2, 4));
+                } else {
+                    $(this).val(val);
+                }
+            });
+
+            // Card Number spacing
+            $('#CardNumber').on('input', function (e) {
+                var val = $(this).val().replace(/\s/g, '').replace(/\D/g, '');
+                var nextVal = '';
+                for (var i = 0; i < val.length; i++) {
+                    if (i > 0 && i % 4 == 0) nextVal += ' ';
+                    nextVal += val[i];
+                }
+                $(this).val(nextVal);
+            });
+        });
+    </script>
+}

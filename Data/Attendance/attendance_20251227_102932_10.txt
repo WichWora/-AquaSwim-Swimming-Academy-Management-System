@@ -1,0 +1,12 @@
+=== SWIMMING CLASS ATTENDANCE ===
+Class: Beginner Swimming
+Date: 2025-12-27
+Time: 09:00 - 10:00
+Coach: LEOW
+Location: Lane 4
+----------------------------------
+ATTENDANCE LIST:
+----------------------------------
+Total Present: 0
+Total Absent: 0
+Recorded at: 2025-12-27 10:29:32
